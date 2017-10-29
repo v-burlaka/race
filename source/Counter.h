@@ -15,6 +15,6 @@ public:
 	void startTimeCalculation();
 	void endTimeCalculation();
 	int getTime();
-	int getDistance();
-	int getScore();
+	int getDistance() const;
+	int getScore() const;
 };

@@ -1,5 +1,6 @@
-#include "Barrier.h"
 #include <iostream>
+
+#include "Barrier.h"
 
 void Barrier::setSideBarrier()
 {
@@ -11,7 +12,7 @@ void Barrier::setSideBarrierFourRoads()
 	side = 1 + rand() % 4;
 }
 
-int Barrier::getSide()
+int Barrier::getSide() const
 {
 	return side;
 }

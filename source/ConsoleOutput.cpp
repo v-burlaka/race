@@ -1,39 +1,43 @@
-#include "ConsoleOutput.h"
 #include <iostream>
 #include <conio.h>//kbhit()
 
+#include "ConsoleOutput.h"
+
 ConsoleOutput::ConsoleOutput()
 {
-	gameStatus = true;
+	isGame = true;
 }
 
 void ConsoleOutput::gameOver(const int& i, User& user, Barrier& barrier, Counter& counter)
 {
 	if (user.getSide() < 1 || user.getSide() > 2)
 	{
-		gameStatus = false;
+		isGame = false;
 		system("cls");
 		std::cout << "Outside the road! Game Over!\n";
 	}
-	else if (i >= (roadLenght - 2) && user.getSide() == barrier.getSide())
+	else if (i >= (ROAD_LENGHT - 2) && user.getSide() == barrier.getSide())//the user's machine is drawn from (ROAD_LECHT - 1)
 	{
-		gameStatus = false;
+		isGame = false;
 		system("cls");
 		std::cout << "Crash! Game Over!\n";
 	}
 }
 
-bool ConsoleOutput::gameStatusCheck()
+bool ConsoleOutput::gameStatusCheck() const
 {
-	return gameStatus;
+	return isGame;
 }
 
-void ConsoleOutput::outResult(Counter& counter, User& user)
+void ConsoleOutput::outResult(Counter& counter, User& user) const
 {
-	std::cout << "speed:" << user.getSpeedForConsole() << " distance: " << counter.getDistance() << " score: " << counter.getScore() << " time:" << counter.getTime() << std::endl;
+	std::cout << "speed:" << user.getSpeedForConsole() 
+		<< " distance: " << counter.getDistance() 
+		<< " score: " << counter.getScore() 
+		<< " time:" << counter.getTime() << std::endl;
 }
 
-void ConsoleOutput::drawCar(User& user)
+void ConsoleOutput::drawCar(User& user) const
 {
 	switch (user.getSide())
 	{
@@ -45,7 +49,7 @@ void ConsoleOutput::drawCar(User& user)
 	}
 }
 
-void ConsoleOutput::drawCarOnLeftSide()
+void ConsoleOutput::drawCarOnLeftSide() const
 {
 	std::cout << "|   __   |        |\n"
 		<< "| [|__|] |        |\n"
@@ -53,7 +57,7 @@ void ConsoleOutput::drawCarOnLeftSide()
 		<< "| [|==|] |        |\n";
 }
 
-void ConsoleOutput::drawCarOnRightSide()
+void ConsoleOutput::drawCarOnRightSide() const
 {
 	std::cout << "|        |   __   |\n"
 		<< "|        | [|__|] |\n"
@@ -61,7 +65,7 @@ void ConsoleOutput::drawCarOnRightSide()
 		<< "|        | [|==|] |\n";
 }
 
-void ConsoleOutput::drawBarrier(const int &i, Barrier& barrier)
+void ConsoleOutput::drawBarrier(const int &i, Barrier& barrier) const
 {
 	for (int j = 0; j < i; ++j)
 		std::cout << "|        |        |\n";
@@ -75,7 +79,7 @@ void ConsoleOutput::drawBarrier(const int &i, Barrier& barrier)
 	}
 }
 
-void ConsoleOutput::drawBarrierOnLeftSide()
+void ConsoleOutput::drawBarrierOnLeftSide() const
 {
 	std::cout << "|   __   |        |\n"
 		<< "| [|__|] |        |\n"
@@ -83,7 +87,7 @@ void ConsoleOutput::drawBarrierOnLeftSide()
 		<< "| [|==|] |        |\n";
 }
 
-void ConsoleOutput::drawBarrierOnRightSide()
+void ConsoleOutput::drawBarrierOnRightSide() const
 {
 	std::cout << "|        |   __   |\n"
 		<< "|        | [|__|] |\n"
@@ -91,7 +95,7 @@ void ConsoleOutput::drawBarrierOnRightSide()
 		<< "|        | [|==|] |\n";
 }
 
-void ConsoleOutput::cleanTheTopOfTheRoad(const int& i)
+void ConsoleOutput::cleanTheTopOfTheRoad(const int& i) const
 {
 	system("cls");
 	for (int y = 0; y < i; ++y)
@@ -101,19 +105,19 @@ void ConsoleOutput::cleanTheTopOfTheRoad(const int& i)
 void ConsoleOutput::outGame(User& user, Counter& counter, Barrier& barrier)
 {
 	barrier.setSideBarrier();
-	for (int i = 0, count = 0; i < roadLenght; ++i)
+	for (int i = 0, count = 0; i < ROAD_LENGHT; ++i)
 	{
 		if (kbhit())
 			user.inputButtonCheck();
 		if (i == count)
 		{
+			count += 3; //draw the car every third iteration
 			counter.distaceCalculation();
 			counter.scoreCalculation(user.getSpeed());
 			std::cout << i;
 			cleanTheTopOfTheRoad(i);
 			drawBarrier(i, barrier);
-			count += 3; 
-			for (int j = i; j < roadLenght - 5; ++j)
+			for (int j = i; j < ROAD_LENGHT - 4; ++j)//leave 4 lines to draw the user's machine
 				std::cout << "|        |        |\n";
 			drawCar(user);
 			outResult(counter, user);

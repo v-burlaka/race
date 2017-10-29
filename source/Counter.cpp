@@ -30,12 +30,12 @@ void Counter::endTimeCalculation()
 	end = std::chrono::system_clock::now();
 }
 
-int Counter::getDistance()
+int Counter::getDistance() const
 {
 	return distance;
 }
 
-int Counter::getScore()
+int Counter::getScore() const
 {
 	return score;
 }

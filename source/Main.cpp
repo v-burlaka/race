@@ -1,7 +1,8 @@
+#include <ctime>
+
 #include "ConsoleOutput.h"
 #include "FourRoadsOutput.h"
 #include "Menu.h"
-#include <ctime>
 
 void main()
 {

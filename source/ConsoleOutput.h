@@ -5,19 +5,19 @@
 
 class ConsoleOutput
 {
-	const int roadLenght = 20;
-	bool gameStatus;
+	const int ROAD_LENGHT = 20;
+	bool isGame;
 public:
 	ConsoleOutput();
-	void drawCar(User&);
-	void drawCarOnLeftSide();
-	void drawCarOnRightSide();
-	void drawBarrier(const int&, Barrier&);
-	void drawBarrierOnLeftSide();
-	void drawBarrierOnRightSide();
-	void cleanTheTopOfTheRoad(const int&);
+	void drawCar(User&) const;
+	void drawCarOnLeftSide() const;
+	void drawCarOnRightSide() const;
+	void drawBarrier(const int&, Barrier&) const;
+	void drawBarrierOnLeftSide() const;
+	void drawBarrierOnRightSide() const;
+	void cleanTheTopOfTheRoad(const int&) const;
 	void outGame(User&, Counter&, Barrier&);
 	void gameOver(const int&, User&, Barrier&, Counter&);
-	bool gameStatusCheck();
-	void outResult(Counter&, User&);
+	bool gameStatusCheck() const;
+	void outResult(Counter&, User&) const;
 };

@@ -1,6 +1,7 @@
-#include "Menu.h"
 #include <iostream>
 #include <conio.h>
+
+#include "Menu.h"
 
 Menu::Menu()
 {
@@ -34,7 +35,7 @@ void Menu::setLevel()
 	}
 }
 
-int Menu::getLevel()
+int Menu::getLevel() const
 {
 	return level;
 }

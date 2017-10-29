@@ -9,7 +9,7 @@ public:
 	void inputButtonCheck();
 	void setSpeed();
 	void reestablishSpeed();
-	int getSide();
-	int getSpeed();
-	int getSpeedForConsole();
+	int getSide() const;
+	int getSpeed() const;
+	int getSpeedForConsole() const;
 };

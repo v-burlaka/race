@@ -1,40 +1,44 @@
-#include "FourRoadsOutput.h"
 #include <iostream>
 #include <conio.h>
 
+#include "FourRoadsOutput.h"
+
 FourRoadsOutput::FourRoadsOutput()
 {
-	gameStatus = true;
-	checkSide = true;
+	isGame = true;
+	isCheckSide = true;
 }
 
-void FourRoadsOutput::gameOver(const int& i, User& user, Barrier& barrier, Counter& counter)
+void FourRoadsOutput::gameOver(const int& i, User& user, Barrier& barrier, Counter& counter) 
 {
 	if (user.getSide() < 1 || user.getSide() > 4)
 	{
-		gameStatus = false;
+		isGame = false;
 		system("cls");
 		std::cout << "Outside the road! Game Over!\n";
 	}
-	if (i >= (roadLenght - 2) && user.getSide() == barrier.getSide())
+	if (i >= (ROAD_LENGHT - 1) && user.getSide() == barrier.getSide())//the user's machine is drawn from (ROAD_LECHT - 1)
 	{
-		gameStatus = false;
+		isGame = false;
 		system("cls");
 		std::cout << "Crash! Game Over!\n";
 	}
 }
 
-void FourRoadsOutput::outResult(Counter& counter, User& user)
+void FourRoadsOutput::outResult(Counter& counter, User& user) const
 {
-	std::cout << "speed:" << user.getSpeedForConsole() << " distance: " << counter.getDistance() << " score: " << counter.getScore() << " time:" << counter.getTime() << std::endl;
+	std::cout << "speed:" << user.getSpeedForConsole()
+		<< " distance: " << counter.getDistance()
+		<< " score: " << counter.getScore()
+		<< " time:" << counter.getTime() << std::endl;
 }
 
-bool FourRoadsOutput::gameStatusCheck()
+bool FourRoadsOutput::gameStatusCheck() const
 {
-	return gameStatus;
+	return isGame;
 }
 
-void FourRoadsOutput::drawCar(User& user)
+void FourRoadsOutput::drawCar(User& user) const
 {
 	switch (user.getSide())
 	{
@@ -50,7 +54,7 @@ void FourRoadsOutput::drawCar(User& user)
 	}
 }
 
-void FourRoadsOutput::drawCarOnFirstSide()
+void FourRoadsOutput::drawCarOnFirstSide() const
 {
 	std::cout << "|   __   |        ||        |        |\n"
 		<< "| [|__|] |        ||        |        |\n"
@@ -58,7 +62,7 @@ void FourRoadsOutput::drawCarOnFirstSide()
 		<< "| [|==|] |        ||        |        |\n";
 }
 
-void FourRoadsOutput::drawCarOnSecondSide()
+void FourRoadsOutput::drawCarOnSecondSide() const
 {
 	std::cout << "|        |   __   ||        |        |\n"
 		<< "|        | [|__|] ||        |        |\n"
@@ -66,7 +70,7 @@ void FourRoadsOutput::drawCarOnSecondSide()
 		<< "|        | [|==|] ||        |        |\n";
 }
 
-void FourRoadsOutput::drawCarOnThirdSide()
+void FourRoadsOutput::drawCarOnThirdSide() const
 {
 	std::cout << "|        |        ||   __   |        |\n"
 		<< "|        |        || [|__|] |        |\n"
@@ -74,7 +78,7 @@ void FourRoadsOutput::drawCarOnThirdSide()
 		<< "|        |        || [|==|] |        |\n";
 }
 
-void FourRoadsOutput::drawCarOnFourthSide()
+void FourRoadsOutput::drawCarOnFourthSide() const
 {
 	std::cout << "|        |        ||        |   __   |\n"
 		<< "|        |        ||        | [|__|] |\n"
@@ -82,7 +86,7 @@ void FourRoadsOutput::drawCarOnFourthSide()
 		<< "|        |        ||        | [|==|] |\n";
 }
 
-void FourRoadsOutput::drawBarrierFourRoads(const int &i, Barrier& barrier)
+void FourRoadsOutput::drawBarrierFourRoads(const int &i, Barrier& barrier) const
 {
 	for (int j = 0; j < i; ++j)
 		std::cout << "|        |        ||        |        |\n";
@@ -100,7 +104,7 @@ void FourRoadsOutput::drawBarrierFourRoads(const int &i, Barrier& barrier)
 	}
 }
 
-void FourRoadsOutput::drawBarrierOnFirstSide()
+void FourRoadsOutput::drawBarrierOnFirstSide() const
 {
 	std::cout << "|   __   |        ||        |        |\n"
 		<< "| [|__|] |        ||        |        |\n"
@@ -108,7 +112,7 @@ void FourRoadsOutput::drawBarrierOnFirstSide()
 		<< "| [|==|] |        ||        |        |\n";
 }
 
-void FourRoadsOutput::drawBarrierOnSecondSide()
+void FourRoadsOutput::drawBarrierOnSecondSide() const
 {
 	std::cout << "|        |   __   ||        |        |\n"
 		<< "|        | [|__|] ||        |        |\n"
@@ -116,7 +120,7 @@ void FourRoadsOutput::drawBarrierOnSecondSide()
 		<< "|        | [|==|] ||        |        |\n";
 }
 
-void FourRoadsOutput::drawBarrierOnThirdSide()
+void FourRoadsOutput::drawBarrierOnThirdSide() const
 {
 	std::cout << "|        |        ||   __   |        |\n"
 		<< "|        |        || [|==|] |        |\n"
@@ -124,7 +128,7 @@ void FourRoadsOutput::drawBarrierOnThirdSide()
 		<< "|        |        || [|__|] |        |\n";
 }
 
-void FourRoadsOutput::drawBarrierOnFourthSide()
+void FourRoadsOutput::drawBarrierOnFourthSide() const
 {
 	std::cout << "|        |        ||        |   __   |\n"
 		<< "|        |        ||        | [|==|] |\n"
@@ -132,7 +136,7 @@ void FourRoadsOutput::drawBarrierOnFourthSide()
 		<< "|        |        ||        | [|__|] |\n";
 }
 
-void FourRoadsOutput::cleanTheTopOfTheRoad(const int& i)
+void FourRoadsOutput::cleanTheTopOfTheRoad(const int& i) const
 {
 	system("cls");
 	for (int y = 0; y < i; ++y)
@@ -142,36 +146,36 @@ void FourRoadsOutput::cleanTheTopOfTheRoad(const int& i)
 void FourRoadsOutput::outGame(User& user, Counter& counter, Barrier& barrier)
 {
 	barrier.setSideBarrierFourRoads();
-	for (int i = 0, count = 0; i < roadLenght; ++i)
+	for (int i = 0, count = 0; i < ROAD_LENGHT; ++i)
 	{
 		if (kbhit())
 			user.inputButtonCheck();
-		if (user.getSide() > 2 && checkSide)
+		if (user.getSide() > 2 && isCheckSide)
 		{
-			checkSide = false;
+			isCheckSide = false;
 			user.setSpeed();
 		}
-		else if (user.getSide() < 3 && !checkSide)
+		else if (user.getSide() < 3 && !isCheckSide)
 		{
-			checkSide = true;
+			isCheckSide = true;
 			user.reestablishSpeed();
 		}
 		if (i == count)
 		{
+			count += 3;//draw the car every third iteration
 			counter.distaceCalculation();
 			counter.scoreCalculation(user.getSpeed());
 			std::cout << i;
 			cleanTheTopOfTheRoad(i);
 			drawBarrierFourRoads(i, barrier);
-			count += 3;
-			for (int j = i; j < roadLenght - 5; ++j)
+			for (int j = i; j < ROAD_LENGHT - 4; ++j)//leave 4 lines to draw the user's machine
 				std::cout << "|        |        ||        |        |\n";
 			drawCar(user);
 			outResult(counter, user);
 		}
 		counter.endTimeCalculation();
 		gameOver(i, user, barrier, counter);
-		if (!gameStatus)
+		if (!isGame)
 			break;
 		_sleep(user.getSpeed());
 	}

@@ -1,6 +1,7 @@
-#include "User.h"
 #include <conio.h>//getch() and kbhit()
 #include <iostream>
+
+#include "User.h"
 
 User::User()
 {
@@ -49,17 +50,17 @@ void User::reestablishSpeed()
 	speed += 30;
 }
 
-int User::getSide()
+int User::getSide() const
 {
 	return side;
 }
 
-int User::getSpeed()
+int User::getSpeed() const
 {
 	return speed;
 }
 
-int User::getSpeedForConsole()
+int User::getSpeedForConsole() const
 {
 	return 210 - speed;
 }

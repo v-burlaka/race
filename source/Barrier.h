@@ -6,5 +6,5 @@ class Barrier
 public:
 	void setSideBarrier();
 	void setSideBarrierFourRoads();
-	int getSide();
+	int getSide() const;
 };

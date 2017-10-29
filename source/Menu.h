@@ -7,5 +7,5 @@ class Menu
 public:
 	Menu();
 	void setLevel();
-	int getLevel();
+	int getLevel() const;
 };
