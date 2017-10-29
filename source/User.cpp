@@ -5,8 +5,8 @@
 
 User::User()
 {
-	side = 1;
-	speed = 100;
+	side_ = 1;
+	speed_ = 100;
 }
 
 void User::inputButtonCheck()
@@ -15,13 +15,13 @@ void User::inputButtonCheck()
 	button = getch();
 	switch (button)
 	{
-	case 75: --side;
+	case 75: --side_;
 		break;
-	case 77: ++side;
+	case 77: ++side_;
 		break;
-	case 80: speed += 30;
+	case 80: speed_ += 30;
 		break;
-	case 72: speed -= 30;
+	case 72: speed_ -= 30;
 		break;
 	case 13: system("pause");
 		break;
@@ -29,38 +29,38 @@ void User::inputButtonCheck()
 		break;
 	default: break;
 	}
-	if (speed > 200)
-		speed = 200;
-	if (speed < 10)
-		speed = 10;
+	if (speed_ > 200)
+		speed_ = 200;
+	if (speed_ < 10)
+		speed_ = 10;
 }
 
 void User::setSpeed()
 {
-	if (side == 3 || side == 4)
+	if (side_ == 3 || side_ == 4)
 	{
-		speed -= 30;
+		speed_ -= 30;
 	}
-	if (speed < 0)
-		speed = 0;
+	if (speed_ < 0)
+		speed_ = 0;
 }
 
 void User::reestablishSpeed()
 {
-	speed += 30;
+	speed_ += 30;
 }
 
 int User::getSide() const
 {
-	return side;
+	return side_;
 }
 
 int User::getSpeed() const
 {
-	return speed;
+	return speed_;
 }
 
 int User::getSpeedForConsole() const
 {
-	return 210 - speed;
+	return 210 - speed_;
 }

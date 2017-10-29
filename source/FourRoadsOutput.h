@@ -5,9 +5,10 @@
 
 class FourRoadsOutput
 {
+private:
 	const int ROAD_LENGHT = 20;
-	bool isGame;
-	bool isCheckSide;
+	bool isGame_;
+	bool isCheckSide_;
 public:
 	FourRoadsOutput();
 	void drawCar(User&) const;

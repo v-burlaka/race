@@ -2,8 +2,9 @@
 
 class Menu
 {
-	int level;
-	char button;
+private:
+	int level_;
+	char button_;
 public:
 	Menu();
 	void setLevel();

@@ -5,21 +5,21 @@
 
 FourRoadsOutput::FourRoadsOutput()
 {
-	isGame = true;
-	isCheckSide = true;
+	isGame_ = true;
+	isCheckSide_ = true;
 }
 
 void FourRoadsOutput::gameOver(const int& i, User& user, Barrier& barrier, Counter& counter) 
 {
 	if (user.getSide() < 1 || user.getSide() > 4)
 	{
-		isGame = false;
+		isGame_ = false;
 		system("cls");
 		std::cout << "Outside the road! Game Over!\n";
 	}
 	if (i >= (ROAD_LENGHT - 1) && user.getSide() == barrier.getSide())//the user's machine is drawn from (ROAD_LECHT - 1)
 	{
-		isGame = false;
+		isGame_ = false;
 		system("cls");
 		std::cout << "Crash! Game Over!\n";
 	}
@@ -35,7 +35,7 @@ void FourRoadsOutput::outResult(Counter& counter, User& user) const
 
 bool FourRoadsOutput::gameStatusCheck() const
 {
-	return isGame;
+	return isGame_;
 }
 
 void FourRoadsOutput::drawCar(User& user) const
@@ -150,14 +150,14 @@ void FourRoadsOutput::outGame(User& user, Counter& counter, Barrier& barrier)
 	{
 		if (kbhit())
 			user.inputButtonCheck();
-		if (user.getSide() > 2 && isCheckSide)
+		if (user.getSide() > 2 && isCheckSide_)
 		{
-			isCheckSide = false;
+			isCheckSide_ = false;
 			user.setSpeed();
 		}
-		else if (user.getSide() < 3 && !isCheckSide)
+		else if (user.getSide() < 3 && !isCheckSide_)
 		{
-			isCheckSide = true;
+			isCheckSide_ = true;
 			user.reestablishSpeed();
 		}
 		if (i == count)
@@ -175,7 +175,7 @@ void FourRoadsOutput::outGame(User& user, Counter& counter, Barrier& barrier)
 		}
 		counter.endTimeCalculation();
 		gameOver(i, user, barrier, counter);
-		if (!isGame)
+		if (!isGame_)
 			break;
 		_sleep(user.getSpeed());
 	}

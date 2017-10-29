@@ -5,7 +5,7 @@
 
 Menu::Menu()
 {
-	level = 1;
+	level_ = 1;
 }
 
 void Menu::setLevel()
@@ -13,18 +13,18 @@ void Menu::setLevel()
 	std::cout << "Choise level:\n"
 		<< "Two roads  <---\n"
 		<< "Four roads ";
-	while (button != 13)
+	while (button_ != 13)
 	{
-		button = getch();
-		switch (button)
+		button_ = getch();
+		switch (button_)
 		{
-		case 72: level = 1;
+		case 72: level_ = 1;
 			system("cls");
 			std::cout << "Choise level:\n"
 				<< "Two roads  <---\n"
 				<< "Four roads";
 			break;
-		case 80: level = 2;
+		case 80: level_ = 2;
 			system("cls");
 			std::cout << "Choise level:\n"
 				<< "Two roads\n"
@@ -37,5 +37,5 @@ void Menu::setLevel()
 
 int Menu::getLevel() const
 {
-	return level;
+	return level_;
 }

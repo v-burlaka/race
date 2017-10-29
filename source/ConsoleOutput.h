@@ -5,8 +5,9 @@
 
 class ConsoleOutput
 {
+private:
 	const int ROAD_LENGHT = 20;
-	bool isGame;
+	bool isGame_;
 public:
 	ConsoleOutput();
 	void drawCar(User&) const;

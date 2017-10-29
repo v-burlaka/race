@@ -5,20 +5,20 @@
 
 ConsoleOutput::ConsoleOutput()
 {
-	isGame = true;
+	isGame_ = true;
 }
 
 void ConsoleOutput::gameOver(const int& i, User& user, Barrier& barrier, Counter& counter)
 {
 	if (user.getSide() < 1 || user.getSide() > 2)
 	{
-		isGame = false;
+		isGame_ = false;
 		system("cls");
 		std::cout << "Outside the road! Game Over!\n";
 	}
 	else if (i >= (ROAD_LENGHT - 2) && user.getSide() == barrier.getSide())//the user's machine is drawn from (ROAD_LECHT - 1)
 	{
-		isGame = false;
+		isGame_ = false;
 		system("cls");
 		std::cout << "Crash! Game Over!\n";
 	}
@@ -26,7 +26,7 @@ void ConsoleOutput::gameOver(const int& i, User& user, Barrier& barrier, Counter
 
 bool ConsoleOutput::gameStatusCheck() const
 {
-	return isGame;
+	return isGame_;
 }
 
 void ConsoleOutput::outResult(Counter& counter, User& user) const

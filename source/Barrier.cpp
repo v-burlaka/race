@@ -4,15 +4,15 @@
 
 void Barrier::setSideBarrier()
 {
-	side = 1 + rand() % 2;
+	side_ = 1 + rand() % 2;
 }
 
 void Barrier::setSideBarrierFourRoads()
 {
-	side = 1 + rand() % 4;
+	side_ = 1 + rand() % 4;
 }
 
 int Barrier::getSide() const
 {
-	return side;
+	return side_;
 }

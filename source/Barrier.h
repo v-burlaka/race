@@ -2,7 +2,8 @@
 
 class Barrier
 {
-	int side;
+private:
+	int side_;
 public:
 	void setSideBarrier();
 	void setSideBarrierFourRoads();

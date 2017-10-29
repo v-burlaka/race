@@ -2,8 +2,9 @@
 
 class User
 {
-	int side;
-	int speed;
+private:
+	int side_;
+	int speed_;
 public:
 	User();
 	void inputButtonCheck();
