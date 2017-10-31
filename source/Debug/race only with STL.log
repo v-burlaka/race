@@ -1,0 +1,15 @@
+﻿  TwoRoadsOutput.cpp
+d:\luxoft\race only with stl\race only with stl\tworoadsoutput.cpp(110): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(458): note:  см. объявление "kbhit"
+d:\luxoft\race only with stl\race only with stl\tworoadsoutput.cpp(129): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note:  см. объявление "_sleep"
+  FourRoadsOutput.cpp
+d:\luxoft\race only with stl\race only with stl\fourroadsoutput.cpp(151): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(458): note:  см. объявление "kbhit"
+d:\luxoft\race only with stl\race only with stl\fourroadsoutput.cpp(180): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note:  см. объявление "_sleep"
+  Barrier.cpp
+  Создание кода...
+  Пропуск... (изменения не обнаружены)
+  Main.cpp
+  race only with STL.vcxproj -> D:\luxoft\race only with STL\Debug\race only with STL.exe
