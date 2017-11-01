@@ -6,11 +6,11 @@
 class Menu
 {
 public:
-	void outMenu(const int& punkt_);
+	void outMenu(const int& paragraph_);
 	void checkParagraph();
 	void setParagraph();
 	void setLevel();
-	void outParagraph(const int& punkt_);
+	void outParagraph(const int& paragraph_);
 	void outRecords();
 	void gameRules();
 	void startGame();
