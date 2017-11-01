@@ -27,9 +27,9 @@ void Car::inputButtonCheck()
 		break;
 	case RIGHT: ++side_;
 		break;
-	case DOWN: speed_ += 30;
+	case DOWN: speed_ += SPEED_CHAING;
 		break;
-	case UP: speed_ -= 30;
+	case UP: speed_ -= SPEED_CHAING;
 		break;
 	case ENTER: system("pause");
 		break;
@@ -44,17 +44,17 @@ void Car::setSpeed()
 {
 	if (side_ == THIRD_SIDE)
 	{
-		speed_ -= 30;
+		speed_ -= SPEED_CHAING;
 	}
-	if (speed_ < 0)
+	if (speed_ < MIN_SPEED)
 	{
-		speed_ = 0;
+		speed_ = MIN_SPEED;
 	}
 	speedCheck();
 }
 
 void Car::reestablishSpeed()
 {
-	speed_ += 30;
+	speed_ += SPEED_CHAING;
 	speedCheck();
 }

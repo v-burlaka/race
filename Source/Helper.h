@@ -6,6 +6,7 @@ namespace race
 
 	const int MAX_SPEED = 190;
 	const int MIN_SPEED = 10;
+	const int SPEED_CHAING = 30;
 	const int LENGHT = 4;
 	const int COLLISION_POINT = 19;
 	const int ROAD_LENGHT = 20;
