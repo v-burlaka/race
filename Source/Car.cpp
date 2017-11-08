@@ -5,6 +5,11 @@
 
 using namespace race;
 
+Car::Car() :side_(1), speed_(100)
+{
+
+}
+
 void Car::speedCheck()
 {
 	if (speed_ > MAX_SPEED)

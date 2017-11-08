@@ -8,6 +8,7 @@ using namespace race;
 class Car
 {
 public:
+	Car();
 	void inputButtonCheck();
 	void setSpeed();
 	void reestablishSpeed();
@@ -17,8 +18,8 @@ public:
 	inline int getSpeedForConsole() const;
 	inline int getLenght() const;
 private:
-	int side_ = 1;
-	int speed_ = 100;
+	int side_;
+	int speed_;
 };
 
 

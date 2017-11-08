@@ -10,6 +10,7 @@
 class Counter
 {
 public:
+	Counter();
 	void distaceCalculation();
 	void scoreCalculation(const int& speed);
 	void startTimeCalculation();
@@ -19,8 +20,8 @@ public:
 	inline int getScore() const;
 	void saveScore(Menu& menu);
 private:
-	int distance_ = 0;
-	int score_ = 0;
+	int distance_;
+	int score_;
 	int time_;
 	std::chrono::time_point<std::chrono::system_clock> start_;
 	std::chrono::time_point<std::chrono::system_clock> end_;

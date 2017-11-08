@@ -1,5 +1,9 @@
 #include "Counter.h"
 
+Counter::Counter() : distance_(0), score_(0)
+{
+}
+
 void Counter::distaceCalculation()
 {
 	++distance_;

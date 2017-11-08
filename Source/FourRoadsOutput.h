@@ -8,6 +8,7 @@
 class FourRoadsOutput
 {
 public:
+	FourRoadsOutput();
 	void drawCar(Car& car) const;
 	void drawCarOnFirstSide() const;
 	void drawCarOnSecondSide() const;
@@ -24,8 +25,8 @@ public:
 	inline bool gameStatusCheck() const;
 	void outResult(Counter& counter, Car& car) const;
 private:
-	bool isGame_ = true;
-	bool isCheckSide_ = true;
+	bool isGame_;
+	bool isCheckSide_;
 };
 
 bool FourRoadsOutput::gameStatusCheck() const

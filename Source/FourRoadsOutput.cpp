@@ -5,6 +5,10 @@
 
 using namespace race;
 
+FourRoadsOutput::FourRoadsOutput() : isGame_(true), isCheckSide_(true)
+{
+}
+
 void FourRoadsOutput::gameOver(const int& i, Car& car, Barrier& barrier, Counter& counter) 
 {
 	if (car.getSide() < FIRST_SIDE || car.getSide() > FOURTH_SIDE)

@@ -6,6 +6,7 @@
 class Menu
 {
 public:
+	Menu();
 	void outMenu(const int& paragraph_);
 	void checkParagraph();
 	void setParagraph();
@@ -16,8 +17,8 @@ public:
 	void startGame();
 	inline int getLevel() const;
 private:
-	int paragraph_ = 1;
-	int level_ = 1;
+	int paragraph_;
+	int level_;
 	char button_;
 };
 

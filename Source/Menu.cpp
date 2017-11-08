@@ -9,6 +9,10 @@
 
 using namespace race;
 
+Menu::Menu() : paragraph_(1), level_(1)
+{
+}
+
 void Menu::outMenu(const int& paragraph_)
 {
 		switch (paragraph_)

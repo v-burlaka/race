@@ -8,6 +8,7 @@
 class TwoRoadsOutput
 {
 public:
+	TwoRoadsOutput();
 	void drawCar(Car& car) const;
 	void drawCarOnLeftSide() const;
 	void drawCarOnRightSide() const;
@@ -20,7 +21,7 @@ public:
 	inline bool gameStatusCheck() const;
 	void outResult(Counter& counter, Car& car) const;
 private:
-	bool isGame_ = true;
+	bool isGame_;
 };
 
 bool TwoRoadsOutput::gameStatusCheck() const

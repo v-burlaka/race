@@ -5,6 +5,10 @@
 
 using namespace race;
 
+TwoRoadsOutput::TwoRoadsOutput() : isGame_(true)
+{
+}
+
 void TwoRoadsOutput::gameOver(const int& i, Car& car, Barrier& barrier, Counter& counter)
 {
 	if (car.getSide() < FIRST_SIDE || car.getSide() > SECOND_SIDE)

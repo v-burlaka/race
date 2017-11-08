@@ -5,3 +5,4 @@ distance: 42 | score: 6060 | time: 8 | level: 2 | name: ¤«
 distance: 7 | score: 760 | time: 2 | level: 2 | name: «¤
 distance: 14 | score: 530 | time: 1 | level: 1 | name: fd
 distance: 133 | score: 20830 | time: 23 | level: 2 | name: pp
+distance: 14 | score: 2270 | time: 2 | level: 2 | name: lkjh

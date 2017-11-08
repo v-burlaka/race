@@ -4,6 +4,7 @@
 class Barrier
 {
 public:
+	Barrier();
 	void setSide();
 	void setSideFourRoads();
 	inline int getSide() const;
