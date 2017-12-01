@@ -1,0 +1,8 @@
+distance: 35 | score: 890 | time: 4 | level: 1 | name: player1
+distance: 22 | score: 3760 | time: 3 | level: 2 | name: player2
+distance: 42 | score: 2400 | time: 8 | level: 1 | name: ол
+distance: 42 | score: 6060 | time: 8 | level: 2 | name: дл
+distance: 7 | score: 760 | time: 2 | level: 2 | name: лд
+distance: 14 | score: 530 | time: 1 | level: 1 | name: fd
+distance: 133 | score: 20830 | time: 23 | level: 2 | name: pp
+distance: 14 | score: 2270 | time: 2 | level: 2 | name: lkjh

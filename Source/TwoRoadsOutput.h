@@ -1,4 +1,4 @@
-#ifndef TWO_ROADS_OUTPUT_HTWO_ROADS_OUTPUT_H
+#ifndef TWO_ROADS_OUTPUT_H
 #define TWO_POADS_OUTPUT_H
 
 #include "car.h"
@@ -18,11 +18,14 @@ public:
 	void cleanTheTopOfTheRoad(const int& i) const;
 	void outGame(Car& car, Counter& counter, Barrier& barrier);
 	void gameOver(const int& i, Car& car, Barrier& barrier, Counter& counter);
-	bool gameStatusCheck() const;
+	inline bool gameStatusCheck() const;
 	void outResult(Counter& counter, Car& car) const;
 private:
-	const int ROAD_LENGHT = 20;
-	const int COLLISION_POINT = 19;
 	bool isGame_;
 };
-#endif TWO_ROADS_OUTPUT_H
+
+bool TwoRoadsOutput::gameStatusCheck() const
+{
+	return isGame_;
+}
+#endif

@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h" />
+    <ClInclude Include="Helper.h" />
     <ClInclude Include="TwoRoadsOutput.h" />
     <ClInclude Include="Counter.h" />
     <ClInclude Include="FourRoadsOutput.h" />

@@ -4,10 +4,16 @@
 class Barrier
 {
 public:
+	Barrier();
 	void setSide();
 	void setSideFourRoads();
-	int getSide() const;
+	inline int getSide() const;
 private:
 	int side_;
 };
+
+int Barrier::getSide() const
+{
+	return side_;
+}
 #endif

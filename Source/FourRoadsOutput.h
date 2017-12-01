@@ -22,12 +22,15 @@ public:
 	void cleanTheTopOfTheRoad(const int& i) const;
 	void outGame(Car& car, Counter& counter, Barrier& barrier);
 	void gameOver(const int& i, Car& car, Barrier& barrier, Counter& counter);
-	bool gameStatusCheck() const;
+	inline bool gameStatusCheck() const;
 	void outResult(Counter& counter, Car& car) const;
 private:
-	const int COLLISION_POINT = 19;
-	const int ROAD_LENGHT = 20;
 	bool isGame_;
 	bool isCheckSide_;
 };
+
+bool FourRoadsOutput::gameStatusCheck() const
+{
+	return isGame_;
+}
 #endif

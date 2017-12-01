@@ -3,15 +3,15 @@
 
 #include "FourRoadsOutput.h"
 
-FourRoadsOutput::FourRoadsOutput()
+using namespace race;
+
+FourRoadsOutput::FourRoadsOutput() : isGame_(true), isCheckSide_(true)
 {
-	isGame_ = true;
-	isCheckSide_ = true;
 }
 
 void FourRoadsOutput::gameOver(const int& i, Car& car, Barrier& barrier, Counter& counter) 
 {
-	if (car.getSide() < 1 || car.getSide() > 4)
+	if (car.getSide() < FIRST_SIDE || car.getSide() > FOURTH_SIDE)
 	{
 		isGame_ = false;
 		system("cls");
@@ -33,22 +33,17 @@ void FourRoadsOutput::outResult(Counter& counter, Car& car) const
 		<< " time:" << counter.getTime() << std::endl;
 }
 
-bool FourRoadsOutput::gameStatusCheck() const
-{
-	return isGame_;
-}
-
 void FourRoadsOutput::drawCar(Car& car) const
 {
 	switch (car.getSide())
 	{
-	case 1: drawCarOnFirstSide();
+	case FIRST_SIDE: drawCarOnFirstSide();
 		break;
-	case 2: drawCarOnSecondSide();
+	case SECOND_SIDE: drawCarOnSecondSide();
 		break;
-	case 3: drawCarOnThirdSide();
+	case THIRD_SIDE: drawCarOnThirdSide();
 		break;
-	case 4: drawCarOnFourthSide();
+	case FOURTH_SIDE: drawCarOnFourthSide();
 		break;
 	default: break;
 	}
@@ -89,7 +84,9 @@ void FourRoadsOutput::drawCarOnFourthSide() const
 void FourRoadsOutput::drawBarrier(const int &i, Barrier& barrier) const
 {
 	for (int j = 0; j < i; ++j)
+	{
 		std::cout << "|        |        ||        |        |\n";
+	}
 	switch (barrier.getSide())
 	{
 	case 1: drawBarrierOnFirstSide();
@@ -140,7 +137,9 @@ void FourRoadsOutput::cleanTheTopOfTheRoad(const int& i) const
 {
 	system("cls");
 	for (int y = 0; y < i; ++y)
+	{
 		std::cout << "|        |        ||        |        |\n";
+	}
 }
 
 void FourRoadsOutput::outGame(Car& car, Counter& counter, Barrier& barrier)
@@ -149,13 +148,15 @@ void FourRoadsOutput::outGame(Car& car, Counter& counter, Barrier& barrier)
 	for (int i = 0, count = 0; i < ROAD_LENGHT; ++i)
 	{
 		if (kbhit())
+		{
 			car.inputButtonCheck();
-		if (car.getSide() > 2 && isCheckSide_)
+		}
+		if (car.getSide() > SECOND_SIDE && isCheckSide_)
 		{
 			isCheckSide_ = false;
 			car.setSpeed();
 		}
-		else if (car.getSide() < 3 && !isCheckSide_)
+		else if (car.getSide() < THIRD_SIDE && !isCheckSide_)
 		{
 			isCheckSide_ = true;
 			car.reestablishSpeed();
@@ -176,7 +177,9 @@ void FourRoadsOutput::outGame(Car& car, Counter& counter, Barrier& barrier)
 		counter.endTimeCalculation();
 		gameOver(i, car, barrier, counter);
 		if (!isGame_)
+		{
 			break;
+		}
 		_sleep(car.getSpeed());
 	}
 }

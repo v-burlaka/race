@@ -1,0 +1,11 @@
+Control:
+< turn left;
+> turn right;
+^ gas;
+v break.
+
+Rules: avoid barriers and stay on the road.
+
+Has developed a Burlaka Ivan.
+
+ESC - back
